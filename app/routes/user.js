@@ -1,8 +1,8 @@
 'use strict';
 
-const Joi = require('joi');
-const controllers = require('../controllers');
-module.exports = [{
+import Joi from 'joi';
+import controllers from '../controllers';
+export default [{
   method: 'POST',
   path: '/users',
   config: {

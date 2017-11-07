@@ -1,5 +1,5 @@
-const models = require('../models');
-const Boom = require('boom');
+import models from '../models';
+import Boom from 'boom';
 const read = async (request, reply) => {
   try {
     const result = await models.user.findAll();
@@ -20,4 +20,4 @@ const create = async (request, reply) => {
   }
 };
 
-module.exports = {read, create};
+export default {read, create};
