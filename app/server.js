@@ -1,8 +1,8 @@
 'use strict';
 
-const Hapi = require('hapi');
-const Good = require('good');
-const routes = require('./routes');
+import Hapi from 'hapi';
+import Good from 'good';
+import routes from './routes';
 
 const plugins = [
   {
@@ -31,12 +31,12 @@ server.register(plugins, (err) => {
   if (err) {
     throw err;
   }
-  if (!module.parent) {
-    server.start((error) => {
-      if (error) {
-        throw error;
-      }
-      console.log('Hapi Server Running At', server.info.uri);
-    });
-  }
 });
+server.start(err => { 
+  if (err) {
+    throw err;
+  }
+  console.log( `Server started at ${ server.info.uri }` );
+});
+
+export default server;

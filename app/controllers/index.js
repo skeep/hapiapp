@@ -1,3 +1,3 @@
-const userController = require('./userController');
+import userController from './userController';
 
-module.exports = { userController };
+export default { userController };
