@@ -1,17 +1,23 @@
 const models = require('../models');
 const Boom = require('boom');
-const read =  (request, reply) => {
-  models.user.findAll().then((result) => {
+const read = async (request, reply) => {
+  try {
+    const result = await models.user.findAll();
     reply({'Users': result});
-  })
-  .catch((err) => reply(Boom.badImplementation('Error creating user:', err)));
+  }
+  catch(exception) {
+    reply(Boom.badImplementation('Error reading user:', exception));
+  }
 };
 
-const create = (request, reply) => {
-  models.user.create({username: request.payload.username}).then((result) => {
+const create = async (request, reply) => {
+  try {
+    const result = await models.user.create({username: request.payload.username});
     reply({'Users': result});
-  })
-  .catch((err) => reply(Boom.badImplementation('Error reading users:', err)));;
+  }
+  catch(exception) {
+    reply(Boom.badImplementation('Error creating users:', err))
+  }
 };
 
 module.exports = {read, create};
