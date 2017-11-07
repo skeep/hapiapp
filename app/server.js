@@ -2,7 +2,7 @@
 
 const Hapi = require('hapi');
 const Good = require('good');
-const routes = require('./routes/user');
+const routes = require('./routes');
 
 const plugins = [
   {

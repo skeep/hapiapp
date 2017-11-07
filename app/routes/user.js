@@ -1,13 +1,13 @@
 'use strict';
 
 const Joi = require('joi');
-const {read, create} = require('../controllers/userController');
+const controllers = require('../controllers');
 module.exports = [{
   method: 'POST',
   path: '/users',
   config: {
     description: 'Inserts one user into the system',
-    handler: create,
+    handler: controllers.userController.create,
     validate: {
       payload: {
         username: Joi.string().alphanum().min(3).max(30).required(),
@@ -20,7 +20,7 @@ module.exports = [{
   path: '/users',
   config: {
     description: 'Gets the List of All Users in the system',
-    handler: read
+    handler: controllers.userController.read
   }
 }
 ];
