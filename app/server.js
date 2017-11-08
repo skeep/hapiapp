@@ -22,7 +22,8 @@ const plugins = [
       }
     }
   }
-];
+]
+
 const server = new Hapi.Server();
 
 server.connection({port: 9999, host: 'localhost'});
@@ -32,6 +33,7 @@ server.register(plugins, (err) => {
     throw err;
   }
 });
+
 server.start(err => { 
   if (err) {
     throw err;

@@ -1,23 +1,23 @@
 {
-  "development": {
+"development": {
     "username": "root",
     "password": "pass",
     "database": "hapiapp",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
-  "test": {
+"test": {
     "username": "root",
-    "password": "pass",
+    "password": "root",
     "database": "hapiapp_test",
-    "host": "127.0.0.1",
+    "host": "root",
     "dialect": "mysql"
   },
-  "production": {
+"production": {
     "username": "root",
-    "password": "pass",
+    "password": "root",
     "database": "hapiapp_prod",
-    "host": "127.0.0.1",
+    "host": "root",
     "dialect": "mysql"
   }
 }
