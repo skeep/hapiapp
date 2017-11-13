@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/skeep/hapiapp#readme",
   "dependencies": {
+    "@gar/hapi-json-api": "^2.0.4",
     "aguid": "^1.0.4",
     "babel": "^6.3.26",
     "babel-core": "^6.26.0",
