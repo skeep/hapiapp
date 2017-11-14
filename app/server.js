@@ -3,8 +3,31 @@
 import Hapi from 'hapi';
 import Good from 'good';
 import routes from './routes';
+import Inert from 'inert';
+import Vision from 'vision';
+import HapiSwagger from 'hapi-swagger';
+import Pack from '../package';
+import JsonApi from '@gar/hapi-json-api';
+
+const hapiOptions = {
+  info: {
+      'title': 'Test API Documentation',
+      'version': Pack.version,
+      }
+  };
+
 
 const plugins = [
+  {
+    register: JsonApi,
+    options: {}
+  },
+  Inert,
+  Vision,
+  {
+    register: HapiSwagger,
+    options: hapiOptions
+  },
   {
     register: Good,
     options: {
@@ -22,9 +45,9 @@ const plugins = [
       }
     }
   }
-];
-const server = new Hapi.Server();
+]
 
+const server = new Hapi.Server();
 server.connection({port: 9999, host: 'localhost'});
 server.route(routes);
 server.register(plugins, (err) => {
@@ -32,6 +55,7 @@ server.register(plugins, (err) => {
     throw err;
   }
 });
+
 server.start(err => { 
   if (err) {
     throw err;

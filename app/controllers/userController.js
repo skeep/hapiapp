@@ -16,7 +16,7 @@ const create = async (request, reply) => {
     reply({'Users': result});
   }
   catch(exception) {
-    reply(Boom.badImplementation('Error creating users:', err))
+    reply(Boom.badImplementation('Error creating user:', exception))
   }
 };
 
