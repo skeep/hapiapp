@@ -7,7 +7,7 @@ export default [{
   path: '/users',
   config: {
     description: 'Inserts one user into the system',
-    handler: controllers.userController.create,
+    handler: controllers.user.create,
     validate: {
       payload: {
         username: Joi.string().alphanum().min(3).max(30).required(),
@@ -20,7 +20,7 @@ export default [{
   path: '/users',
   config: {
     description: 'Gets the List of All Users in the system',
-    handler: controllers.userController.read
+    handler: controllers.user.read
   }
 }
 ];
