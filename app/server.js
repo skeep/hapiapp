@@ -8,13 +8,14 @@ import Vision from 'vision';
 import HapiSwagger from 'hapi-swagger';
 import Pack from '../package';
 import JsonApi from '@gar/hapi-json-api';
+import HapiCors from 'hapi-cors';
 
 const hapiOptions = {
   info: {
-      'title': 'Test API Documentation',
-      'version': Pack.version,
-      }
-  };
+    'title': 'Test API Documentation',
+    'version': Pack.version,
+  }
+};
 
 
 const plugins = [
@@ -44,11 +45,17 @@ const plugins = [
         }, 'stdout']
       }
     }
+  },
+  {
+    register: HapiCors,
+    options: {
+      origins: ['http://localhost:3000']
+    }
   }
-]
+];
 
 const server = new Hapi.Server();
-server.connection({port: 9999, host: 'localhost'});
+server.connection({port: 9999, host: 'localhost', routes: { cors: true }});
 server.route(routes);
 server.register(plugins, (err) => {
   if (err) {
