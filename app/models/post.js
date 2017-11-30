@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     title: DataTypes.STRING,
     categories: DataTypes.TEXT,
     content: DataTypes.STRING,
-    user_id: { type: Sequelize.INTEGER, references: user, referencesKey: "id" }
+    user_id: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
